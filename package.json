@@ -1,0 +1,15 @@
+{
+  "name": "music-player-cf-deploy",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers 音乐播放器",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "keywords": ["cloudflare", "workers", "music", "player"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "wrangler": "^4.27.0"
+  }
+}
