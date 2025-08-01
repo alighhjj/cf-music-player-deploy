@@ -4,6 +4,7 @@
   "description": "Cloudflare Workers 音乐播放器",
   "scripts": {
     "deploy": "wrangler deploy",
+    "versions-upload": "echo 'Workers Sites does not support versions upload. Use deploy instead.'",
     "dev": "wrangler dev"
   },
   "keywords": ["cloudflare", "workers", "music", "player"],

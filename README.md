@@ -30,6 +30,21 @@
    cd F:\程序\coder\songplayer\cf-music-player-deploy
    wrangler deploy
    ```
+   
+   或者使用 npm 脚本（推荐）：
+   ```bash
+   npm run deploy
+   ```
+
+### 方法2：使用 PowerShell 部署脚本
+
+项目包含一个 PowerShell 部署脚本 `deploy.ps1`，可以自动处理部署过程：
+
+1. 确保已安装 Bun（用于依赖安装）
+2. 在 PowerShell 中运行：
+   ```powershell
+   .\deploy.ps1
+   ```
 
 ### 方法2：使用 Cloudflare Dashboard 手动部署
 
@@ -58,6 +73,10 @@
 
 注意：使用 Pages 部署将仅提供静态内容，API 功能将不可用。
 
+### 关于版本上传
+
+由于此项目使用 Workers Sites，不支持使用 `wrangler versions upload` 命令。必须使用 `wrangler deploy` 或 `npm run deploy` 进行部署。
+
 ## 本地开发
 
 ```bash
@@ -79,8 +98,18 @@ wrangler dev
 │   ├── player.js         # 播放器逻辑
 │   └── ...               # 其他静态资源
 ├── wrangler.toml         # Wrangler 配置文件
-└── package.json          # 项目依赖和脚本
+├── package.json          # 项目依赖和脚本
+├── deploy.ps1            # PowerShell 部署脚本
+└── git_push.ps1          # Git 提交和推送脚本
 ```
+
+## 项目脚本
+
+在 `package.json` 中定义了以下脚本：
+
+- `npm run deploy` - 部署到 Cloudflare Workers（正确的方法）
+- `npm run dev` - 本地开发服务器
+- `npm run versions-upload` - 显示 Workers Sites 不支持版本上传的提示
 
 ## API 端点
 
